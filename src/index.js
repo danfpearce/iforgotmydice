@@ -25,6 +25,9 @@ class Screen extends React.Component {
       //return;
     //}
     //squares[i] = this.state.xIsNext ? 'X' : 'O';
+    let result;
+    result =  Math.floor(1 + (Math.random() * (i)));
+    this.state.result_arr.push(result);
     this.setState({
       //dice_arr: dice,
       //xIsNext: !this.state.xIsNext,
@@ -46,15 +49,15 @@ class Screen extends React.Component {
 
   render() {
     //const winner = calculateWinner(this.state.squares);
-    let result;
+   // let result;
+    //result = this.state.result; 
     //let rolls;
     
     //if (winner) {
       //status = 'Winner: ' + winner;
     //} else {
       //status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-      result =  Math.floor(1 + (Math.random() * (this.state.die_num)));
-      this.state.result_arr.push(result);
+      
       //rolls = 'Result array:' + (this.state.result_arr);
       //result_arr = 999;
 
@@ -73,8 +76,12 @@ class Screen extends React.Component {
         {this.renderDie(3)}
         {this.renderDie(100)}
         </div>
-        <div className="result">{result}</div>
-        <div className="result2">{this.state.result_arr}</div>
+
+        <ul>
+      {this.state.result_arr.map((value, index) => {
+        return <li key={index}>{value}</li>
+      })}
+    </ul>
       </div>
     );
   }
