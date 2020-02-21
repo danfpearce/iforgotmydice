@@ -17,6 +17,7 @@ class Screen extends React.Component {
       //dice_arr: Array[20,12,10,8,6,4,100],
       result_arr: new Array(),
       dice_type: 0,
+      rolls: 0,
       total: 0,
       half: 0,
       high: 0,
@@ -54,6 +55,7 @@ class Screen extends React.Component {
       high: Math.max.apply(null, this.state.result_arr),
       low: Math.min.apply(null, this.state.result_arr),
       mean: Math.round(sum / this.state.result_arr.length),
+      rolls: this.state.result_arr.length,
       //dice_arr: dice,
       //xIsNext: !this.state.xIsNext,
       //die_num: sides,
@@ -98,7 +100,6 @@ class Screen extends React.Component {
         {this.renderDie(8)}
         {this.renderDie(6)}
         {this.renderDie(4)}
-        {this.renderDie(3)}
         {this.renderDie(100)}
         </div>
 
@@ -107,6 +108,7 @@ class Screen extends React.Component {
            return <li key={index}>{value}</li>
            })}
        </ul>
+       <div>Rolls: {this.state.rolls}</div>
        <div>Total: {this.state.total}</div>
        <div>Half: {this.state.half}</div>
        <div>High: {this.state.high}</div>
