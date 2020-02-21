@@ -17,6 +17,10 @@ class Screen extends React.Component {
       //dice_arr: Array[20,12,10,8,6,4,100],
       result_arr: new Array(),
       dice_type: 0,
+      high: 0,
+      low: 0,
+      mean: 0,
+      half: 0,
     };
   }
 
@@ -36,6 +40,11 @@ class Screen extends React.Component {
     let result;
     result =  Math.floor(1 + (Math.random() * (sides)));
     this.state.result_arr.push(result);
+
+    this.state.high = Math.max.apply(null, this.state.result_arr);
+    this.state.low = Math.min.apply(null, this.state.result_arr);
+    let sum = this.state.result_arr.reduce((previous, current) => current += previous);
+    this.state.mean = Math.round(sum / this.state.result_arr.length);
     this.setState({
       //dice_arr: dice,
       //xIsNext: !this.state.xIsNext,
@@ -90,6 +99,9 @@ class Screen extends React.Component {
            return <li key={index}>{value}</li>
            })}
        </ul>
+           <div>High: {this.state.high}</div>
+           <div>Low: {this.state.low}</div>
+           <div>Average: {this.state.mean}</div>
       </div>
     );
   }
