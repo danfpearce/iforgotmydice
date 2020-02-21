@@ -15,34 +15,42 @@ class Screen extends React.Component {
     super(props);
     this.state = {
       //dice_arr: Array[20,12,10,8,6,4,100],
-      result_arr: new Array()
+      result_arr: new Array(),
+      dice_type: 0,
     };
   }
 
-  handleClick(i) {
+  handleClick(sides) {
+    //alert('Dice type:' + this.state.dice_type)
+    //if we're switching to a different dice, start recording
+    //the new rolls and forget the old ones
+    if (sides != this.state.dice_type) {
+      this.state.result_arr = new Array();
+    }
+    this.state.dice_type = sides;
     //const dice = this.state.dice_arr.slice();
     //if (calculateWinner(squares) || squares[i]) {
       //return;
     //}
     //squares[i] = this.state.xIsNext ? 'X' : 'O';
     let result;
-    result =  Math.floor(1 + (Math.random() * (i)));
+    result =  Math.floor(1 + (Math.random() * (sides)));
     this.state.result_arr.push(result);
     this.setState({
       //dice_arr: dice,
       //xIsNext: !this.state.xIsNext,
-      die_num: i,
+      //die_num: sides,
       //result_arr: new Array(2,3,4),
     });
     
   }
 
-  renderDie(i) {
+  renderDie(sides) {
     //alert('die num is: ' +i);
     return (
       <Die
-        value={i}
-        onClick={() => this.handleClick(i)}
+        value={sides}
+        onClick={() => this.handleClick(sides)}
       />
     );
   }
@@ -78,10 +86,10 @@ class Screen extends React.Component {
         </div>
 
         <ul>
-      {this.state.result_arr.map((value, index) => {
-        return <li key={index}>{value}</li>
-      })}
-    </ul>
+          {this.state.result_arr.map((value, index) => {
+           return <li key={index}>{value}</li>
+           })}
+       </ul>
       </div>
     );
   }
