@@ -111,8 +111,12 @@ class Screen extends React.Component {
        <div>Rolls: {this.state.rolls}</div>
        <div>Total: {this.state.total}</div>
        <div>Half: {this.state.half}</div>
-       <div>High: {this.state.high}</div>
-       <div>Low: {this.state.low}</div>
+       {this.state.dice_type == 20 &&
+         <div>High: {this.state.high}</div>
+       }
+       {this.state.dice_type ==20 &&
+          <div>Low: {this.state.low}</div>  
+       }
        <div>Average: {this.state.mean}</div>
       </div>
     );
