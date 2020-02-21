@@ -17,6 +17,8 @@ class Screen extends React.Component {
       //dice_arr: Array[20,12,10,8,6,4,100],
       result_arr: new Array(),
       dice_type: 0,
+      total: 0,
+      half: 0,
       high: 0,
       low: 0,
       mean: 0,
@@ -44,8 +46,11 @@ class Screen extends React.Component {
     //this.state.high = Math.max.apply(null, this.state.result_arr);
     //this.state.low = Math.min.apply(null, this.state.result_arr);
     let sum = this.state.result_arr.reduce((previous, current) => current += previous);
+    let half = Math.floor(sum / 2);
     //this.state.mean = Math.round(sum / this.state.result_arr.length);
     this.setState({
+      total: sum,
+      half: half,
       high: Math.max.apply(null, this.state.result_arr),
       low: Math.min.apply(null, this.state.result_arr),
       mean: Math.round(sum / this.state.result_arr.length),
@@ -102,9 +107,11 @@ class Screen extends React.Component {
            return <li key={index}>{value}</li>
            })}
        </ul>
-           <div>High: {this.state.high}</div>
-           <div>Low: {this.state.low}</div>
-           <div>Average: {this.state.mean}</div>
+       <div>Total: {this.state.total}</div>
+       <div>Half: {this.state.half}</div>
+       <div>High: {this.state.high}</div>
+       <div>Low: {this.state.low}</div>
+       <div>Average: {this.state.mean}</div>
       </div>
     );
   }
