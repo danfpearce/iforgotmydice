@@ -41,11 +41,14 @@ class Screen extends React.Component {
     result =  Math.floor(1 + (Math.random() * (sides)));
     this.state.result_arr.push(result);
 
-    this.state.high = Math.max.apply(null, this.state.result_arr);
-    this.state.low = Math.min.apply(null, this.state.result_arr);
+    //this.state.high = Math.max.apply(null, this.state.result_arr);
+    //this.state.low = Math.min.apply(null, this.state.result_arr);
     let sum = this.state.result_arr.reduce((previous, current) => current += previous);
-    this.state.mean = Math.round(sum / this.state.result_arr.length);
+    //this.state.mean = Math.round(sum / this.state.result_arr.length);
     this.setState({
+      high: Math.max.apply(null, this.state.result_arr),
+      low: Math.min.apply(null, this.state.result_arr),
+      mean: Math.round(sum / this.state.result_arr.length),
       //dice_arr: dice,
       //xIsNext: !this.state.xIsNext,
       //die_num: sides,
