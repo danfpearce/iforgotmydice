@@ -31,16 +31,16 @@ class Screen extends React.Component {
     let result =  Math.floor(1 + (Math.random() * (sides)));
     _result_arr.push(result);
 
-    let sum = _result_arr.reduce((previous, current) => current += previous);
-    let half = Math.floor(sum / 2);
+    let _sum = _result_arr.reduce((previous, current) => current += previous);
+    let _half = Math.floor(_sum / 2);
     this.setState({
       result_arr: _result_arr,
       dice_type: sides,
-      total: sum,
-      half: half,
+      total: _sum,
+      half: _half,
       high: Math.max.apply(null, _result_arr),
       low: Math.min.apply(null, _result_arr),
-      mean: Math.round(sum / _result_arr.length),
+      mean: Math.round(_sum / _result_arr.length),
       rolls: _result_arr.length,
     });
     
