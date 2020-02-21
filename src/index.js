@@ -14,8 +14,8 @@ class Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dice_arr: Array[20,12,10,8,6,4,100],
-      result_arr: Array[99]
+      //dice_arr: Array[20,12,10,8,6,4,100],
+      result_arr: new Array()
     };
   }
 
@@ -29,7 +29,7 @@ class Screen extends React.Component {
       //dice_arr: dice,
       //xIsNext: !this.state.xIsNext,
       die_num: i,
-      //result_arr: result_arr,
+      //result_arr: new Array(2,3,4),
     });
     
   }
@@ -54,6 +54,7 @@ class Screen extends React.Component {
     //} else {
       //status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
       result =  Math.floor(1 + (Math.random() * (this.state.die_num)));
+      this.state.result_arr.push(result);
       //rolls = 'Result array:' + (this.state.result_arr);
       //result_arr = 999;
 
@@ -73,6 +74,7 @@ class Screen extends React.Component {
         {this.renderDie(100)}
         </div>
         <div className="result">{result}</div>
+        <div className="result2">{this.state.result_arr}</div>
       </div>
     );
   }
