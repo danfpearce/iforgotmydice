@@ -22,7 +22,7 @@ class Screen extends React.Component {
     //if we're switching to a different dice, start recording
     //the new rolls and forget the old ones
     let _result_arr;
-    console.log('sides paassed: ' + sides + ' dice type saved: ' +this.state.dice_type);
+    //console.log('sides paassed: ' + sides + ' dice type saved: ' +this.state.dice_type);
     if (sides !== this.state.dice_type) {
       _result_arr = new Array(0);
     } else {
