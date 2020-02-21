@@ -14,58 +14,39 @@ class Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //dice_arr: Array[20,12,10,8,6,4,100],
-      result_arr: new Array(),
-      dice_type: 0,
-      rolls: 0,
-      total: 0,
-      half: 0,
-      high: 0,
-      low: 0,
-      mean: 0,
-      half: 0,
+      result_arr: Array(0),
     };
   }
 
   handleClick(sides) {
-    //alert('Dice type:' + this.state.dice_type)
     //if we're switching to a different dice, start recording
     //the new rolls and forget the old ones
-    if (sides != this.state.dice_type) {
-      this.state.result_arr = new Array();
+    let _result_arr;
+    console.log('sides paassed: ' + sides + ' dice type saved: ' +this.state.dice_type);
+    if (sides !== this.state.dice_type) {
+      _result_arr = new Array(0);
+    } else {
+      _result_arr = this.state.result_arr;
     }
-    this.state.dice_type = sides;
-    //const dice = this.state.dice_arr.slice();
-    //if (calculateWinner(squares) || squares[i]) {
-      //return;
-    //}
-    //squares[i] = this.state.xIsNext ? 'X' : 'O';
-    let result;
-    result =  Math.floor(1 + (Math.random() * (sides)));
-    this.state.result_arr.push(result);
+    let result =  Math.floor(1 + (Math.random() * (sides)));
+    _result_arr.push(result);
 
-    //this.state.high = Math.max.apply(null, this.state.result_arr);
-    //this.state.low = Math.min.apply(null, this.state.result_arr);
-    let sum = this.state.result_arr.reduce((previous, current) => current += previous);
+    let sum = _result_arr.reduce((previous, current) => current += previous);
     let half = Math.floor(sum / 2);
-    //this.state.mean = Math.round(sum / this.state.result_arr.length);
     this.setState({
+      result_arr: _result_arr,
+      dice_type: sides,
       total: sum,
       half: half,
-      high: Math.max.apply(null, this.state.result_arr),
-      low: Math.min.apply(null, this.state.result_arr),
-      mean: Math.round(sum / this.state.result_arr.length),
-      rolls: this.state.result_arr.length,
-      //dice_arr: dice,
-      //xIsNext: !this.state.xIsNext,
-      //die_num: sides,
-      //result_arr: new Array(2,3,4),
+      high: Math.max.apply(null, _result_arr),
+      low: Math.min.apply(null, _result_arr),
+      mean: Math.round(sum / _result_arr.length),
+      rolls: _result_arr.length,
     });
     
   }
 
   renderDie(sides) {
-    //alert('die num is: ' +i);
     return (
       <Die
         value={sides}
@@ -111,10 +92,10 @@ class Screen extends React.Component {
        <div>Rolls: {this.state.rolls}</div>
        <div>Total: {this.state.total}</div>
        <div>Half: {this.state.half}</div>
-       {this.state.dice_type == 20 &&
+       {this.state.dice_type === 20 &&
          <div>High: {this.state.high}</div>
        }
-       {this.state.dice_type ==20 &&
+       {this.state.dice_type === 20 &&
           <div>Low: {this.state.low}</div>  
        }
        <div>Average: {this.state.mean}</div>
@@ -123,36 +104,5 @@ class Screen extends React.Component {
   }
 
 }
-
-/* class Die extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.state = { random: 0 };
-  }
-
-  handleClick() {
-    const max = 20;
-    const rand = Math.floor(1 + Math.random() * (max));
-    this.setState({ random: rand })
-  }
-
-  render() {
-    return (
-      <div className="row">
-        <div className="col-12">
-          <h3 className="text-center">Roller Heaven</h3>
-          <button className="btn btn-primary" onClick={this.handleClick.bind(this)}>20</button>
-          <div className="card" style={{marginTop:"10px"}}>
-            <div className="card-block">
-              The number is: {this.state.random}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-} */
 
 render(<Screen />, document.getElementById('root'));
