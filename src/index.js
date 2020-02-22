@@ -19,8 +19,8 @@ class Screen extends React.Component {
   }
 
   handleClick(sides) {
-    //if we're switching to a different dice, start recording
-    //the new rolls and forget the old ones
+    // if we're switching to a different dice, start recording
+    // the new rolls and forget the old ones
     let _result_arr;
     //console.log('sides paassed: ' + sides + ' dice type saved: ' +this.state.dice_type);
     if (sides !== this.state.dice_type) {
@@ -71,25 +71,22 @@ class Screen extends React.Component {
 
       //status = 'Random number:' + rand;
     //}
+    // what dice can they roll?
+    let dice_arr = [20,12,10,8,6,4,100];
 
     return (
       <div>
-        <div className="board-row">
-        {this.renderDie(20)}
-        {this.renderDie(12)}
-        {this.renderDie(10)}
-        {this.renderDie(8)}
-        {this.renderDie(6)}
-        {this.renderDie(4)}
-        {this.renderDie(100)}
-        </div>
+        <ul className="nav">
+          {dice_arr.map((value, index) => {
+            return <li>{this.renderDie(value)}</li>})}
+        </ul>
 
-        <ul>
+        <ul className="result">
           {this.state.result_arr.map((value, index) => {
            return <li key={index}>{value}</li>
            })}
        </ul>
-       <div>Rolls: {this.state.rolls}</div>
+       <div>{this.state.rolls}d{this.state.dice_type}</div>
        <div>Total: {this.state.total}</div>
        <div>Half: {this.state.half}</div>
        {this.state.dice_type === 20 &&
