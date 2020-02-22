@@ -4,7 +4,7 @@ import './index.css';
 
 function Die(props) {
   return (
-    <button className="die" onClick={props.onClick}>
+    <button class="die" onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -79,23 +79,23 @@ class Screen extends React.Component {
         <ul className="nav">
           {dice_arr.map((value, index) => {
             return <li>{this.renderDie(value)}</li>})}
+          <li><a className="die" id="reset" href="/">Reset</a></li>
         </ul>
 
-        <ul className="result">
+        <ul className="results">
           {this.state.result_arr.map((value, index) => {
-           return <li key={index}>{value}</li>
+           return <li className="result" key={index}>{value}</li>
            })}
        </ul>
-       <div>{this.state.rolls}d{this.state.dice_type}</div>
+       <div className="rolls">{this.state.rolls}d{this.state.dice_type}</div>
        <div>Total: {this.state.total}</div>
-       <div>Half: {this.state.half}</div>
-       {this.state.dice_type === 20 &&
-         <div>High: {this.state.high}</div>
+       <div>With Resistance: {this.state.half}</div>
+       {this.state.dice_type === 20 && this.state.rolls === 2 &&
+         <div>With Advantage: {this.state.high}</div>
        }
-       {this.state.dice_type === 20 &&
-          <div>Low: {this.state.low}</div>  
+       {this.state.dice_type === 20 && this.state.rolls ===2 &&
+          <div>With Disadvantage: {this.state.low}</div>  
        }
-       <div>Average: {this.state.mean}</div>
       </div>
     );
   }

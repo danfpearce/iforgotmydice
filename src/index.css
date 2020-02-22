@@ -1,10 +1,57 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
+    background-color: #333;
+    color: white;
   }
   
+  .nav {
+  }
+  
+  li {
+    list-style: none;
+  }
+
+  .die {
+    background-color: black;
+    border: 1px solid red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ccc;
+    float: left;
+    width: 80px;
+    margin-right: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  #reset {
+    margin-right: 0px;
+    width: 58px;
+    font-weight: normal;
+    font-size: 1.25rem;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .results {
+    clear: both;
+    color: white;
+    font-size: 2rem;
+  }
+
+
+  .result {
+    float: left;
+    padding: 10px;
+  }
+
+  .rolls {
+    float: right;
+    font-size: 1.5rem;
+  }
+
   ol, ul {
-    padding-left: 30px;
+    padding-left: 0px;
   }
   
   .board-row:after {
