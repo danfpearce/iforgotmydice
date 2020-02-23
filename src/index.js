@@ -2,6 +2,20 @@ import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
 
+class Results extends React.Component {
+  render() {
+    return (
+      <div className="results clearfix">
+      <ul>
+        {this.props.thisarray.map((value, index) => {
+        return <li className="result" key={index}>{value}</li>
+        })}
+    </ul>
+    </div>
+    );
+  }
+}
+
 function Die(props) {
   return (
     <button class="die button" onClick={props.onClick}>
@@ -56,7 +70,7 @@ class Screen extends React.Component {
       />
     );
   }
-
+  
   render() {
     //const winner = calculateWinner(this.state.squares);
    // let result;
@@ -88,13 +102,7 @@ class Screen extends React.Component {
           <a className="button reset_btn" href="/">Reset</a>
         </div>
 
-        <div className="results clearfix">
-          <ul>
-            {this.state.result_arr.map((value, index) => {
-            return <li className="result" key={index}>{value}</li>
-            })}
-        </ul>
-       </div>
+      <Results thisarray={this.state.result_arr}></Results>
 
       <div className="stats">
         <div className="stats-left">
