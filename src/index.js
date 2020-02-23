@@ -6,8 +6,11 @@ class Results extends React.Component {
   render() {
     return (
       <div className="results clearfix">
+        {this.props.array.length === 0 &&
+        <Intro />
+        }
       <ul>
-        {this.props.thisarray.map((value, index) => {
+        {this.props.array.map((value, index) => {
         return <li className="result" key={index}>{value}</li>
         })}
     </ul>
@@ -16,9 +19,15 @@ class Results extends React.Component {
   }
 }
 
+function Intro(props) {
+  return (
+    <div>Please click on the number buttons above to roll that dice. <br />Selecting the same die rolls multiple times.</div>
+  );
+}
+
 function Die(props) {
   return (
-    <button class="die button" onClick={props.onClick}>
+    <button className="die button" onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -102,7 +111,7 @@ class Screen extends React.Component {
           <a className="button reset_btn" href="/">Reset</a>
         </div>
 
-      <Results thisarray={this.state.result_arr}></Results>
+      <Results array={this.state.result_arr}></Results>
 
       <div className="stats">
         <div className="stats-left">
