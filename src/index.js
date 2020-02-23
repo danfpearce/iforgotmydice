@@ -21,7 +21,7 @@ class Results extends React.Component {
 
 function Intro(props) {
   return (
-    <div>Please click on the number buttons above to roll that dice. <br />Selecting the same die rolls multiple times.</div>
+    <div className="intro">Please click on the number buttons above to roll that dice. <br />Selecting the same die rolls multiple times.</div>
   );
 }
 

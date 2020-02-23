@@ -71,6 +71,9 @@ body {
     width: 55%;
   }
 
+  .intro {
+    font-size: 1.50rem;
+  }
 
   .result {
     float: left;
