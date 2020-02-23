@@ -19,9 +19,44 @@ class Results extends React.Component {
   }
 }
 
+class Stats extends React.Component {
+  render() {
+    if (this.props.rolls === 0) {
+      return (
+        <div className="stats"></div>
+      );
+    } else if (this.props.dice_type === 20 && this.props.rolls === 2 ) {
+    return (
+      <div className="stats">
+      <div className="stats-left">
+        <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
+      </div>
+      <ul className="stats-right">
+        <li>{this.props.high} Advantage</li>
+        <li>{this.props.low} Disadvantage</li>
+      </ul>
+    </div>
+    );
+    } else {
+      return (
+        <div className="stats">
+        <div className="stats-left">
+          <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
+        </div>
+        <ul className="stats-right">
+          <li>Total: {this.props.total}</li>
+          <li>{this.props.half} Resistance</li>
+        </ul>
+      </div>
+      );
+      }
+  }
+}
+
+
 function Intro(props) {
   return (
-    <div className="intro">Please click on the number buttons above to roll that dice. <br />Selecting the same die rolls multiple times.</div>
+    <div className="intro">Please click on the number buttons above to roll that dice. <br/> <br />Selecting the same die rolls multiple times.</div>
   );
 }
 
@@ -113,21 +148,8 @@ class Screen extends React.Component {
 
       <Results array={this.state.result_arr}></Results>
 
-      <div className="stats">
-        <div className="stats-left">
-          <div className="rolls">{this.state.rolls}d{this.state.dice_type}</div>
-        </div>
-        <ul className="stats-right">
-          <li>Total: {this.state.total}</li>
-          <li>{this.state.half} Resistance</li>
-          {this.state.dice_type === 20 && this.state.rolls === 2 &&
-            <li>{this.state.high} Advantage</li>
-          }
-          {this.state.dice_type === 20 && this.state.rolls === 2 &&
-            <li>{this.state.low} Disadvantage</li>  
-          }
-        </ul>
-      </div>
+      <Stats total={this.state.total} half={this.state.half} dice_type={this.state.dice_type} rolls={this.state.rolls} high={this.state.high} low={this.state.low}></Stats>
+     
     </div>
     );
   }
