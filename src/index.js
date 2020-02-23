@@ -75,30 +75,36 @@ class Screen extends React.Component {
     let dice_arr = [20,12,10,8,6,4,100];
 
     return (
-      <div>
-        <ul className="nav">
-          {dice_arr.map((value, index) => {
-            return <li>{this.renderDie(value)}</li>})}
-          <li><a className="die" id="reset" href="/">Reset</a></li>
+      <div className="screen">
+        <div className="nav">
+          <ul>
+            {dice_arr.map((value, index) => {
+              return <li>{this.renderDie(value)}</li>})}
+            <li><a className="die" id="reset_btn" href="/">Reset</a></li>
+          </ul>
+        </div>
+
+        <div className="results clearfix">
+          <ul>
+            {this.state.result_arr.map((value, index) => {
+            return <li className="result" key={index}>{value}</li>
+            })}
         </ul>
+       </div>
 
-        <ul className="results clearfix">
-          {this.state.result_arr.map((value, index) => {
-           return <li className="result" key={index}>{value}</li>
-           })}
-       </ul>
-
-       <ul className="stats">
-        <li className="rolls">{this.state.rolls}d{this.state.dice_type}</li>
-        <li>Total: {this.state.total}</li>
-        <li>With Resistance: {this.state.half}</li>
-        {this.state.dice_type === 20 && this.state.rolls === 2 &&
-          <li>With Advantage: {this.state.high}</li>
-        }
-        {this.state.dice_type === 20 && this.state.rolls ===2 &&
-          <li>With Disadvantage: {this.state.low}</li>  
-        }
-      </ul>
+      <div className="stats">
+        <ul>
+          <li className="rolls">{this.state.rolls}d{this.state.dice_type}</li>
+          <li>Total: {this.state.total}</li>
+          <li>With Resistance: {this.state.half}</li>
+          {this.state.dice_type === 20 && this.state.rolls === 2 &&
+            <li>With Advantage: {this.state.high}</li>
+          }
+          {this.state.dice_type === 20 && this.state.rolls ===2 &&
+            <li>With Disadvantage: {this.state.low}</li>  
+          }
+        </ul>
+      </div>
     </div>
     );
   }
