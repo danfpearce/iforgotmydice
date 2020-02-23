@@ -9,15 +9,17 @@ body {
   .nav-left {
     /* text-align: center; */
     /* position: center; */
+    /* border: 1px solid orange; */
     width: 75%;
     float: left;
   }
 
   .nav-right {
+    /* border: 1px solid orangered; */
     /* text-align: center; */
     /* position: center; */
     float: right;
-    width: 20%;
+    width: 25%;
   }
   
   li {
@@ -28,7 +30,7 @@ body {
     background-color: black;
     border: 1px solid rgb(70, 5, 37);
     color: #ccc;
-    margin-right: 10px;
+    margin-right: 0px;
     margin-bottom: 10px;
     padding-bottom: 50px;
     text-align: center;
@@ -39,16 +41,20 @@ body {
     font-weight: bold;
     float: left;
     width: 80px;
-    padding: 10px;
+    padding: 15px;
+    margin-right: 10px;
   }
 
   .reset_btn {
     float: right;
-    width: 100px;
+    width: 60px;
     font-weight: normal;
     font-size: 1.25rem;
-    margin-top: 14px;
-    padding: 12px;
+    margin-top: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 
   .clearfix {
@@ -59,7 +65,7 @@ body {
     float: left;
     background-color: white;
     color: black;
-    height: 500px;
+    height: 1500px;
     font-size: 2rem;
     width: 60%;
   }
@@ -73,7 +79,7 @@ body {
   .stats {
     float: right;
     width: 40%;
-    height: 500px;
+    height: 1500px;
     background-color: rgb(70, 5, 37);
     color: white;
   }

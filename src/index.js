@@ -72,7 +72,7 @@ class Screen extends React.Component {
       //status = 'Random number:' + rand;
     //}
     // what dice can they roll?
-    let dice_arr = [20,12,10,8,6,4,100];
+    let dice_arr = [20,12,10,8,6,4];
 
     return (
       <div className="screen">
@@ -102,7 +102,7 @@ class Screen extends React.Component {
           {this.state.dice_type === 20 && this.state.rolls === 2 &&
             <li>With Advantage: {this.state.high}</li>
           }
-          {this.state.dice_type === 20 && this.state.rolls ===2 &&
+          {this.state.dice_type === 20 && this.state.rolls === 2 &&
             <li>With Disadvantage: {this.state.low}</li>  
           }
         </ul>
