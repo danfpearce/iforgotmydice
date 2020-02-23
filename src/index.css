@@ -1,5 +1,5 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font: 1rem "Century Gothic", Futura, sans-serif;
     background-color: #333;
     color: white;
   }
@@ -10,7 +10,7 @@ body {
     /* text-align: center; */
     /* position: center; */
     /* border: 1px solid orange; */
-    width: 75%;
+    width: 79%;
     float: left;
   }
 
@@ -19,7 +19,7 @@ body {
     /* text-align: center; */
     /* position: center; */
     float: right;
-    width: 25%;
+    width: 21%;
   }
   
   li {
@@ -51,7 +51,7 @@ body {
     width: 60px;
     font-weight: normal;
     font-size: 1.25rem;
-    margin-top: 16px;
+    margin-top: 2px;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-right: 10px;
@@ -68,7 +68,7 @@ body {
     color: black;
     height: 1500px;
     font-size: 2rem;
-    width: 60%;
+    width: 55%;
   }
 
 
@@ -79,18 +79,31 @@ body {
 
   .stats {
     float: right;
-    width: 40%;
+    width: 45%;
     height: 1500px;
     background-color: rgb(70, 5, 37);
     color: white;
   }
 
+  .stats-left {
+    clear: both;
+    float: left;
+    margin-right: 20px;
+  }
   .rolls {
     font-size: 1.5rem;
-    margin: 5px;
+    margin: 10px;
+    margin-bottom: 20px;
+  }
+
+  .stats-right {
+    clear: right;
+    float: left;
   }
 
    ol, ul {
+     margin: 0px;
+     padding: 1px;
     /* border: 1px solid magenta; */
   }
   

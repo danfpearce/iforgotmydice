@@ -15,6 +15,8 @@ class Screen extends React.Component {
     super(props);
     this.state = {
       result_arr: Array(0),
+      rolls: 0,
+      dice_type: 0,
     };
   }
 
@@ -95,15 +97,17 @@ class Screen extends React.Component {
        </div>
 
       <div className="stats">
-        <ul>
-          <li className="rolls">{this.state.rolls}d{this.state.dice_type}</li>
+        <div className="stats-left">
+          <div className="rolls">{this.state.rolls}d{this.state.dice_type}</div>
+        </div>
+        <ul className="stats-right">
           <li>Total: {this.state.total}</li>
-          <li>With Resistance: {this.state.half}</li>
+          <li>{this.state.half} Resistance</li>
           {this.state.dice_type === 20 && this.state.rolls === 2 &&
-            <li>With Advantage: {this.state.high}</li>
+            <li>{this.state.high} Advantage</li>
           }
           {this.state.dice_type === 20 && this.state.rolls === 2 &&
-            <li>With Disadvantage: {this.state.low}</li>  
+            <li>{this.state.low} Disadvantage</li>  
           }
         </ul>
       </div>
