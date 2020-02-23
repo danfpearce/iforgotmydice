@@ -34,6 +34,7 @@ body {
     margin-bottom: 10px;
     padding-bottom: 50px;
     text-align: center;
+    touch-action: manipulation; /* disables double tap zoom in on iphone */
   }
 
   .die {
