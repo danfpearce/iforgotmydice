@@ -48,7 +48,7 @@ body {
     float: left;
     background-color: white;
     color: black;
-    height: 200px;
+    height: 500px;
     font-size: 2rem;
     width: 60%;
   }
@@ -56,13 +56,13 @@ body {
 
   .result {
     float: left;
-    margin: 5px;
+    margin: 10px;
   }
 
   .stats {
     float: right;
     width: 40%;
-    height: 200px;
+    height: 500px;
     background-color: rgb(70, 5, 37);
     color: white;
   }
