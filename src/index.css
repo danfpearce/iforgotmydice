@@ -8,8 +8,9 @@ body {
   } */
   .nav {
     width: 100%;
-    border: 1px solid yellow;
-    height: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+    position: center;
   }
   
   li {
@@ -18,7 +19,7 @@ body {
 
   .die {
     background-color: black;
-    border: 1px solid red;
+    border: 1px solid rgb(70, 5, 37);;
     font-size: 1.5rem;
     font-weight: bold;
     color: #ccc;
@@ -30,6 +31,7 @@ body {
   }
 
   #reset_btn {
+    float: right;
     margin-right: 0px;
     width: 58px;
     font-weight: normal;
@@ -44,30 +46,34 @@ body {
 
   .results {
     float: left;
-    color: white;
+    background-color: white;
+    color: black;
+    height: 200px;
     font-size: 2rem;
-    width: 59%;
-    border: 1px solid orange;
+    width: 60%;
   }
 
 
   .result {
     float: left;
-    margin-right: 10px;
+    margin: 5px;
   }
 
   .stats {
     float: right;
     width: 40%;
-    border: 1px solid blue;
+    height: 200px;
+    background-color: rgb(70, 5, 37);
+    color: white;
   }
 
   .rolls {
     font-size: 1.5rem;
+    margin: 5px;
   }
 
    ol, ul {
-    padding-left: 0px;
+    padding: 5px;
   }
   
   .game {
