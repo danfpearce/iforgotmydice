@@ -33,8 +33,12 @@ body {
     padding-bottom: 12px;
   }
 
-  .results {
+  .clearfix {
     clear: both;
+  }
+
+  .results {
+    float: left;
     color: white;
     font-size: 2rem;
   }
@@ -45,8 +49,11 @@ body {
     padding: 10px;
   }
 
-  .rolls {
+  .stats {
     float: right;
+  }
+
+  .rolls {
     font-size: 1.5rem;
   }
 

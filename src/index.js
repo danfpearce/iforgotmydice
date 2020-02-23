@@ -82,21 +82,24 @@ class Screen extends React.Component {
           <li><a className="die" id="reset" href="/">Reset</a></li>
         </ul>
 
-        <ul className="results">
+        <ul className="results clearfix">
           {this.state.result_arr.map((value, index) => {
            return <li className="result" key={index}>{value}</li>
            })}
        </ul>
-       <div className="rolls">{this.state.rolls}d{this.state.dice_type}</div>
-       <div>Total: {this.state.total}</div>
-       <div>With Resistance: {this.state.half}</div>
-       {this.state.dice_type === 20 && this.state.rolls === 2 &&
-         <div>With Advantage: {this.state.high}</div>
-       }
-       {this.state.dice_type === 20 && this.state.rolls ===2 &&
-          <div>With Disadvantage: {this.state.low}</div>  
-       }
-      </div>
+
+       <ul className="stats">
+        <li className="rolls">{this.state.rolls}d{this.state.dice_type}</li>
+        <li>Total: {this.state.total}</li>
+        <li>With Resistance: {this.state.half}</li>
+        {this.state.dice_type === 20 && this.state.rolls === 2 &&
+          <li>With Advantage: {this.state.high}</li>
+        }
+        {this.state.dice_type === 20 && this.state.rolls ===2 &&
+          <li>With Disadvantage: {this.state.low}</li>  
+        }
+      </ul>
+    </div>
     );
   }
 
