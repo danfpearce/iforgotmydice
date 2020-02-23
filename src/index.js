@@ -4,7 +4,7 @@ import './index.css';
 
 function Die(props) {
   return (
-    <button class="die" onClick={props.onClick}>
+    <button class="die button" onClick={props.onClick}>
       {props.value}
     </button>
   );
@@ -76,12 +76,14 @@ class Screen extends React.Component {
 
     return (
       <div className="screen">
-        <div className="nav">
+        <div className="nav-left">
           <ul>
             {dice_arr.map((value, index) => {
               return <li>{this.renderDie(value)}</li>})}
-            <li><a className="die" id="reset_btn" href="/">Reset</a></li>
           </ul>
+        </div>
+        <div className="nav-right">
+          <a className="button reset_btn" href="/">Reset</a>
         </div>
 
         <div className="results clearfix">

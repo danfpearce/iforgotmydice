@@ -6,38 +6,49 @@ body {
   /* .screen {
     width: 1000px;
   } */
-  .nav {
-    width: 100%;
-    padding-bottom: 50px;
-    text-align: center;
-    position: center;
+  .nav-left {
+    /* text-align: center; */
+    /* position: center; */
+    width: 75%;
+    float: left;
+  }
+
+  .nav-right {
+    /* text-align: center; */
+    /* position: center; */
+    float: right;
+    width: 20%;
   }
   
   li {
     list-style: none;
   }
 
-  .die {
+  .button {
     background-color: black;
-    border: 1px solid rgb(70, 5, 37);;
-    font-size: 1.5rem;
-    font-weight: bold;
+    border: 1px solid rgb(70, 5, 37);
     color: #ccc;
-    float: left;
-    width: 80px;
     margin-right: 10px;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 50px;
     text-align: center;
   }
 
-  #reset_btn {
+  .die {
+    font-size: 1.5rem;
+    font-weight: bold;
+    float: left;
+    width: 80px;
+    padding: 10px;
+  }
+
+  .reset_btn {
     float: right;
-    margin-right: 0px;
-    width: 58px;
+    width: 100px;
     font-weight: normal;
     font-size: 1.25rem;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    margin-top: 14px;
+    padding: 12px;
   }
 
   .clearfix {
@@ -73,13 +84,13 @@ body {
   }
 
    ol, ul {
-    padding: 5px;
+    /* border: 1px solid magenta; */
   }
   
-  .game {
+  /* .game {
     display: flex;
     flex-direction: row;
-  }
+  } */
   /*
   .board-row:after {
     clear: both;
