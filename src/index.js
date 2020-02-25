@@ -56,7 +56,7 @@ class Stats extends React.Component {
 
 function Intro(props) {
   return (
-    <div className="intro">Please click on the number buttons above to roll that dice. <br/> <br />Selecting the same die rolls multiple times.</div>
+    <div className="intro">Click on the number buttons above to roll that die. <br/><br/>Selecting the same die rolls it multiple times.</div>
   );
 }
 
@@ -116,21 +116,6 @@ class Screen extends React.Component {
   }
   
   render() {
-    //const winner = calculateWinner(this.state.squares);
-   // let result;
-    //result = this.state.result; 
-    //let rolls;
-    
-    //if (winner) {
-      //status = 'Winner: ' + winner;
-    //} else {
-      //status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-      
-      //rolls = 'Result array:' + (this.state.result_arr);
-      //result_arr = 999;
-
-      //status = 'Random number:' + rand;
-    //}
     // what dice can they roll?
     let dice_arr = [20,12,10,8,6,4];
 
@@ -153,7 +138,6 @@ class Screen extends React.Component {
     </div>
     );
   }
-
 }
 
 render(<Screen />, document.getElementById('root'));

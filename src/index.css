@@ -103,6 +103,7 @@ body {
   .stats-right {
     clear: right;
     float: left;
+    margin: 10px;
   }
 
    ol, ul {
