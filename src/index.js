@@ -2,6 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
 
+// TODO: prettify stats-right
+// TODO: Make high rolls (crit) turn a different color
+
 class Results extends React.Component {
   render() {
     return (
@@ -118,6 +121,7 @@ class Screen extends React.Component {
   render() {
     // what dice can they roll?
     let dice_arr = [20,12,10,8,6,4];
+    // TODO: make the reset button reset within the app instead of reloading the page
 
     return (
       <div className="screen">
