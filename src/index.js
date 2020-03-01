@@ -123,6 +123,14 @@ class Screen extends React.Component {
     });
   }
 
+  renderReset() {
+    return (
+      <button className="button reset_btn" onClick={() => this.reset()}>
+      Reset
+    </button>
+    )
+  }
+
   renderDie(sides) {
     return (
       <Die
@@ -146,7 +154,7 @@ class Screen extends React.Component {
           </ul>
         </div>
         <div className="nav-right">
-          <a className="button reset_btn" onClick={() => this.reset() } href="#">Reset</a>
+          {this.renderReset()}
         </div>
 
       <Results array={this.state.result_arr}></Results>
