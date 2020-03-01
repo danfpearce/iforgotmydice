@@ -150,7 +150,7 @@ class Screen extends React.Component {
         <div className="nav-left">
           <ul>
             {dice_arr.map((value, index) => {
-              return <li>{this.renderDie(value)}</li>})}
+              return <li key={index}>{this.renderDie(value)}</li>})}
           </ul>
         </div>
         <div className="nav-right">
