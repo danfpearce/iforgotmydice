@@ -5,6 +5,8 @@ import './index.css';
 // TODO: prettify stats-right
 // TODO: Make high rolls (crit) turn a different color
 // TODO: reset button resets but does not reload the page
+// TODO: add half damage (vulnerable)
+// TODO: change manifest.json
 
 class Results extends React.Component {
   render() {
