@@ -8,15 +8,48 @@ import './index.css';
 
 class Results extends React.Component {
   render() {
+      // var _array = this.props.array;
+      // var ix = this.props.array.length;
+      // var currentroll = _array.id;
+      //var current_roll = _array.ix.toString();
+      
+        var array1 = this.props.array.slice();
+        var last = array1.pop();
+        //const iterator = array1.values();
+        var max = false;
+        //for (const value of iterator) {
+          console.log("Last Value: " + last);
+          if (last === this.props.dice_type) {
+            console.log("MAX VALUE");
+            max = true;
+          } else {
+            max = false;
+          }
+        //}
+  
     return (
       <div className="results clearfix">
         {this.props.array.length === 0 &&
         <Intro />
         }
       <ul>
-        {this.props.array.map((value, index) => {
-        return <li className="result" key={index}>{value}</li>
-        })}
+         {this.props.array.map((result) => {
+           if (max) {
+            return <li className="result max">{result}</li>
+           } else {
+            return <li className="result">{result}</li>
+           }
+          // if (this.props.dice_type === {value}) {
+
+          //   return <li className="result max" key={value.toString()}>{value.toString()}</li>
+          // } else {
+          //   return <li className="result">{value}</li>
+          // }
+        //})
+        })
+        
+        
+        }
     </ul>
     </div>
     );
@@ -157,7 +190,7 @@ class Screen extends React.Component {
           {this.renderReset()}
         </div>
 
-      <Results array={this.state.result_arr}></Results>
+      <Results dice_type={this.state.dice_type} array={this.state.result_arr}></Results>
 
       <Stats total={this.state.total} half={this.state.half} dice_type={this.state.dice_type} rolls={this.state.rolls} high={this.state.high} low={this.state.low}></Stats>
      
