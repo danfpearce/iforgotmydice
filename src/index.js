@@ -2,6 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
 
+// TODO: prettify stats-right
+// TODO: Make high rolls (crit) turn a different color
+// TODO: reset button resets but does not reload the page
+
 class Results extends React.Component {
   render() {
     return (
@@ -106,6 +110,27 @@ class Screen extends React.Component {
     
   }
 
+  reset() {
+    this.setState ({
+      result_arr: Array(0),
+      dice_type: 0,
+      total: 0,
+      half: 0,
+      high: 0,
+      low: 0,
+      mean: 0,
+      rolls: 0,
+    });
+  }
+
+  renderReset() {
+    return (
+      <button className="button reset_btn" onClick={() => this.reset()}>
+      Reset
+    </button>
+    )
+  }
+
   renderDie(sides) {
     return (
       <Die
@@ -118,17 +143,18 @@ class Screen extends React.Component {
   render() {
     // what dice can they roll?
     let dice_arr = [20,12,10,8,6,4];
+    // TODO: make the reset button reset within the app instead of reloading the page
 
     return (
       <div className="screen">
         <div className="nav-left">
           <ul>
             {dice_arr.map((value, index) => {
-              return <li>{this.renderDie(value)}</li>})}
+              return <li key={index}>{this.renderDie(value)}</li>})}
           </ul>
         </div>
         <div className="nav-right">
-          <a className="button reset_btn" href="/">Reset</a>
+          {this.renderReset()}
         </div>
 
       <Results array={this.state.result_arr}></Results>
