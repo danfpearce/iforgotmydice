@@ -9,7 +9,7 @@ import './index.css';
 class Results extends React.Component {
   render() {
     return (
-      <div className="results clearfix">
+      <section className="results clearfix">
         {this.props.array.length === 0 &&
         <Intro />
         }
@@ -18,7 +18,7 @@ class Results extends React.Component {
         return <li className="result" key={index}>{value}</li>
         })}
     </ul>
-    </div>
+    </section>
     );
   }
 }
@@ -27,11 +27,11 @@ class Stats extends React.Component {
   render() {
     if (this.props.rolls === 0) {
       return (
-        <div className="stats"></div>
+        <aside className="stats"></aside>
       );
     } else if (this.props.dice_type === 20 && this.props.rolls === 2 ) {
     return (
-      <div className="stats">
+      <aside className="stats">
       <div className="stats-left">
         <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
       </div>
@@ -39,11 +39,11 @@ class Stats extends React.Component {
         <li>{this.props.high} Advantage</li>
         <li>{this.props.low} Disadvantage</li>
       </ul>
-    </div>
+    </aside>
     );
     } else {
       return (
-        <div className="stats">
+        <aside className="stats">
         <div className="stats-left">
           <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
         </div>
@@ -51,7 +51,7 @@ class Stats extends React.Component {
           <li>Total: {this.props.total}</li>
           <li>{this.props.half} Resistance</li>
         </ul>
-      </div>
+      </aside>
       );
       }
   }
@@ -60,7 +60,7 @@ class Stats extends React.Component {
 
 function Intro(props) {
   return (
-    <div className="intro">Click on the number buttons above to roll that die. <br/><br/>Selecting the same die rolls it multiple times.</div>
+    <h1 className="intro">Click on the number buttons above to roll that die. <br/><br/>Selecting the same die rolls it multiple times.</h1>
   );
 }
 
@@ -146,22 +146,22 @@ class Screen extends React.Component {
     // TODO: make the reset button reset within the app instead of reloading the page
 
     return (
-      <div className="screen">
-        <div className="nav-left">
+      <main className="screen">
+        <section className="nav-left">
           <ul>
             {dice_arr.map((value, index) => {
               return <li key={index}>{this.renderDie(value)}</li>})}
           </ul>
-        </div>
-        <div className="nav-right">
+        </section>
+        <section className="nav-right">
           {this.renderReset()}
-        </div>
+        </section>
 
       <Results array={this.state.result_arr}></Results>
 
       <Stats total={this.state.total} half={this.state.half} dice_type={this.state.dice_type} rolls={this.state.rolls} high={this.state.high} low={this.state.low}></Stats>
      
-    </div>
+    </main>
     );
   }
 }
