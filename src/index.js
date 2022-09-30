@@ -31,7 +31,7 @@ class Stats extends React.Component {
       );
     } else if (this.props.dice_type === 20 && this.props.rolls === 2 ) {
     return (
-      <aside className="stats">
+      <aside className="stats" aria-live="polite" aria-atomic="true">
       <div className="stats-left">
         <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
       </div>
@@ -43,13 +43,13 @@ class Stats extends React.Component {
     );
     } else {
       return (
-        <aside className="stats">
+        <aside className="stats" aria-live="polite" aria-atomic="true">
         <div className="stats-left">
           <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
         </div>
         <ul className="stats-right">
-          <li>Total: {this.props.total}</li>
-          <li>{this.props.half} Resistance</li>
+          <li>{this.props.total} damage</li>
+          <li>{this.props.half} with resistance</li>
         </ul>
       </aside>
       );
