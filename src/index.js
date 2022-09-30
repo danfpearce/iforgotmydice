@@ -31,7 +31,7 @@ class Stats extends React.Component {
       );
     } else if (this.props.dice_type === 20 && this.props.rolls === 2 ) {
     return (
-      <aside className="stats" aria-live="polite" aria-atomic="true">
+      <aside className="stats" aria-live="assertive" aria-atomic="true">
       <div className="stats-left">
         <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
       </div>
