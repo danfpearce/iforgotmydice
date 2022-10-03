@@ -9,7 +9,7 @@ import './index.css';
 class Results extends React.Component {
   render() {
     return (
-      <section className="results clearfix">
+      <main className="results clearfix" aria-label='Instructions or rolls'>
         {this.props.array.length === 0 &&
         <Intro />
         }
@@ -18,7 +18,7 @@ class Results extends React.Component {
         return <li className="result" key={index}>{value}</li>
         })}
     </ul>
-    </section>
+    </main>
     );
   }
 }
@@ -27,11 +27,11 @@ class Stats extends React.Component {
   render() {
     if (this.props.rolls === 0) {
       return (
-        <aside className="stats"></aside>
+        <section className="stats"></section>
       );
     } else if (this.props.dice_type === 20 && this.props.rolls === 2 ) {
     return (
-      <aside className="stats" aria-live="assertive" aria-atomic="true">
+    <section className="stats" aria-live="assertive" aria-atomic="true" aria-label='Number of rolls and damage'>
       <div className="stats-left">
         <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
       </div>
@@ -39,19 +39,19 @@ class Stats extends React.Component {
         <li>{this.props.high} Advantage</li>
         <li>{this.props.low} Disadvantage</li>
       </ul>
-    </aside>
+    </section>
     );
     } else {
       return (
-        <aside className="stats" aria-live="polite" aria-atomic="true">
+        <section className="stats" aria-live="assertive" aria-atomic="true" aria-label='Number of rolls and damage'>
         <div className="stats-left">
           <div className="rolls">{this.props.rolls}d{this.props.dice_type}</div>
         </div>
-        <ul className="stats-right">
+        <ul className="stats-right" aria-label='Damage'>
           <li>{this.props.total} damage</li>
           <li>{this.props.half} with resistance</li>
         </ul>
-      </aside>
+      </section>
       );
       }
   }
@@ -146,22 +146,22 @@ class Screen extends React.Component {
     // TODO: make the reset button reset within the app instead of reloading the page
 
     return (
-      <main className="screen">
-        <section className="nav-left">
+      <div className="screen">
+        <nav className="nav-left" aria-label='Dice to Roll'>
           <ul>
             {dice_arr.map((value, index) => {
               return <li key={index}>{this.renderDie(value)}</li>})}
           </ul>
-        </section>
-        <section className="nav-right">
+        </nav>
+        <nav className="nav-right" aria-label='Right Navigation'>
           {this.renderReset()}
-        </section>
+        </nav>
 
       <Results array={this.state.result_arr}></Results>
 
       <Stats total={this.state.total} half={this.state.half} dice_type={this.state.dice_type} rolls={this.state.rolls} high={this.state.high} low={this.state.low}></Stats>
      
-    </main>
+    </div>
     );
   }
 }
