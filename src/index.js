@@ -60,7 +60,7 @@ class Stats extends React.Component {
 
 function Intro(props) {
   return (
-    <h1 className="intro">Click on the number buttons above to roll that die. <br/><br/>Selecting the same die rolls it multiple times.</h1>
+    <h1 className="intro">Click on the number buttons above to roll that die. Selecting the same die rolls it multiple times.</h1>
   );
 }
 
