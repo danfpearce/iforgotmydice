@@ -1,5 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React, { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 
 // TODO: prettify stats-right
@@ -72,47 +72,46 @@ function Die(props) {
   );
 }
 
-class Screen extends React.Component {
+export class Screen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result_arr: Array(0),
+      result_arr: [],
       rolls: 0,
       dice_type: 0,
+      total: 0,
+      half: 0,
+      high: 0,
+      low: 0,
+      mean: 0,
     };
   }
 
   handleClick(sides) {
     // if we're switching to a different dice, start recording
     // the new rolls and forget the old ones
-    let _result_arr;
-    //console.log('sides paassed: ' + sides + ' dice type saved: ' +this.state.dice_type);
-    if (sides !== this.state.dice_type) {
-      _result_arr = new Array(0);
-    } else {
-      _result_arr = this.state.result_arr;
-    }
-    let result =  Math.floor(1 + (Math.random() * (sides)));
+    const _result_arr =
+      sides !== this.state.dice_type ? [] : [...this.state.result_arr];
+    const result = Math.floor(1 + Math.random() * sides);
     _result_arr.push(result);
 
-    let _sum = _result_arr.reduce((previous, current) => current += previous);
-    let _half = Math.floor(_sum / 2);
+    const _sum = _result_arr.reduce((previous, current) => previous + current, 0);
+    const _half = Math.floor(_sum / 2);
     this.setState({
       result_arr: _result_arr,
       dice_type: sides,
       total: _sum,
       half: _half,
-      high: Math.max.apply(null, _result_arr),
-      low: Math.min.apply(null, _result_arr),
+      high: Math.max(..._result_arr),
+      low: Math.min(..._result_arr),
       mean: Math.round(_sum / _result_arr.length),
       rolls: _result_arr.length,
     });
-    
   }
 
   reset() {
-    this.setState ({
-      result_arr: Array(0),
+    this.setState({
+      result_arr: [],
       dice_type: 0,
       total: 0,
       half: 0,
@@ -166,4 +165,11 @@ class Screen extends React.Component {
   }
 }
 
-render(<Screen />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <Screen />
+    </StrictMode>
+  );
+}
